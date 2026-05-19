@@ -1,0 +1,41 @@
+/* Variables de diseño y reseteo responsivo global */
+:root {
+  --petal-frost: #FFD9DA;
+  --blush-rose: #EA638C;
+  --dark-raspberry: #89023E;
+  --jet-black: #30343F;
+  --carbon-black: #1B2021;
+  --white-pre: #f0eff4;
+}
+
+* {
+  box-sizing: border-box; /* Crucial para que los paddings no rompan el ancho en celulares */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--carbon-black);
+  color: var(--petal-frost);
+  overflow-x: hidden; /* Evita el molesto scroll horizontal en pantallas móviles */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Contenedor estándar responsivo para tus páginas principales */
+.page-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 15px; /* Menos espacio en las esquinas en pantallas móviles */
+  }
+}

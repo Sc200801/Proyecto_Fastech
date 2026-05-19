@@ -1,0 +1,78 @@
+/* ==========================================
+   1. CONTENEDOR DE LA PÁGINA COMPLETA
+   ========================================== */
+.hero-page-container {
+  min-height: calc(100vh - 80px); /* Ajustado a tu nueva Navbar de 80px */
+  display: flex;
+  align-items: center;
+  background-color: var(--carbon-black);
+}
+
+/* El envoltorio mágico que distribuye las dos columnas */
+.hero-main-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+/* ==========================================
+   2. COLUMNA DE TEXTO (Izquierda)
+   ========================================== */
+.hero-text-section {
+  flex: 1;
+  max-width: 45%;
+  text-align: left;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  color: var(--petal-frost); /* Dejado en Petal Frost para alto contraste, cámbialo a --blush-rose si prefieres el rosa */
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--petal-frost);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+/* Botón de acción principal */
+.hero-btn-primary {
+  background-color: var(--dark-raspberry);
+  color: var(--petal-frost);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none; /* Evita que salga recuadro al dar click*/
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.hero-btn-primary:hover {
+  background-color: var(--blush-rose);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   3. COLUMNA DE IMAGEN (Derecha)
+   ========================================== */
+.hero-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-illustration {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}

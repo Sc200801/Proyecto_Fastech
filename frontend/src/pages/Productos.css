@@ -1,0 +1,190 @@
+:root {
+  --petal-frost: #FFD9DA;
+  --blush-rose: #EA638C;
+  --dark-raspberry: #89023E;
+  --jet-black: #30343F;
+  --carbon-black: #1B2021;
+}
+
+.productos-page-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  gap: 35px;
+  background-color: var(--jet-black);
+  color: white;
+  min-height: 100vh;
+}
+
+/* SIDEBAR ESTILO STEREN */
+.sidebar-filtros {
+  width: 260px;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(234, 99, 140, 0.2);
+  padding-right: 25px;
+}
+
+.sidebar-filtros h3 {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--petal-frost);
+  border-bottom: 2px solid var(--dark-raspberry);
+  padding-bottom: 8px;
+  margin-bottom: 25px;
+}
+
+.filtro-seccion h4 {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.sidebar-filtros ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-filtros li {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  color:#f0eff4;
+}
+
+.sidebar-filtros li:hover {
+  background-color: var(--jet-black);
+  color: var(--blush-rose);
+}
+
+.sidebar-filtros li.active-filter {
+  background-color: var(--dark-raspberry);
+  color: white;
+  font-weight: bold;
+}
+
+/* CONTAINER GRID */
+.productos-main-content {
+  flex-grow: 1;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.producto-card {
+  background-color: var(--carbon-black);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(234, 99, 140, 0.15);
+  border-color: var(--blush-rose);
+}
+
+.producto-img-wrapper {
+  background-color: white; /* Mantiene fondo blanco puro para destacar productos */
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.producto-card-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.producto-card-info {
+  padding: 18px;
+}
+
+.producto-card-fst {
+  font-size: 0.75rem;
+  color: #777;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.producto-card-title {
+  font-size: 0.95rem;
+  margin: 0 0 12px 0;
+  height: 42px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: var(--petal-frost);
+  line-height: 1.3;
+}
+
+/* --- CELULAR: Reorganización total para que aparezcan las imágenes --- */
+@media (max-width: 768px) {
+  .productos-page-container {
+    flex-direction: column; /* Coloca los filtros arriba y los productos abajo */
+    padding: 10px;
+  }
+
+  .btn-toggle-filtros {
+    display: block; /* Visible solo en celular */
+    width: 100%;
+    padding: 12px;
+    background-color: #89023E; /* Tu Dark Raspberry */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+
+  .filtros-sidebar {
+    display: none; /* ❌ OCULTOS POR DEFECTO EN CELULAR para liberar la pantalla */
+    width: 100%;
+    background-color: #1B2021;
+    padding: 15px;
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  /* Cuando presionas el botón de filtrar, se añade esta clase y se despliegan */
+  .filtros-sidebar.mostrar {
+    display: block; 
+  }
+
+  /* Asegura que la cuadrícula se rompa a una sola columna si no hay espacio */
+.productos-grid {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Forzar tamaños fluidos en celular */
+  .producto-card {
+    width: 100% !important;     /* Ocupa el ancho disponible */
+    max-width: 340px;           /* Evita que se deforme */
+    box-sizing: border-box;
+  }
+
+  .producto-card img {
+    width: 100% !important;     /* Obliga a la imagen a rellenar la tarjeta */
+    height: auto !important;    /* Mantiene la proporción original */
+    display: block;
+}
+}
+

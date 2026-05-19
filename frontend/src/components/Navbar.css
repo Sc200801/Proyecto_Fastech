@@ -1,0 +1,236 @@
+/* =======================================================
+   1. ESTILOS DE ESCRITORIO (Diseño original restaurado)
+   ======================================================= */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  background-color: #EA638C;      /* Tu color Blush Rose */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-logo-img {
+  height: 40px;
+  display: block;
+}
+
+.navbar-title {
+  margin: 0;
+  font-size: 1.4rem;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/* Contenedor plano original de escritorio */
+.navbar-menu-desktop {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.navbar-menu-desktop .nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: sans-serif;
+  transition: color 0.2s ease;
+}
+
+.navbar-menu-desktop .nav-link:hover {
+  color: #89023E; /* Hover Dark Raspberry */
+}
+
+.nav-btn-carrito {
+  padding: 8px 16px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 20px;
+  color: #89023E;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: all 0.2s ease;
+}
+
+.nav-btn-carrito:hover {
+  background-color: #FFD9DA; 
+  color: #89023E;
+}
+
+.nav-link-logout {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 6px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.nav-link-logout:hover {
+  background-color: #89023E;
+  border-color: #89023E;
+}
+
+/* Ocultar cosas de móvil en escritorio */
+.navbar-toggle-btn,
+.navbar-menu-mobile-drawer,
+.navbar-drawer-overlay {
+  display: none;
+}
+
+/* =======================================================
+   2. DISEÑO RESPONSIVO (Ajustes para Celular - Lado Derecho)
+   ======================================================= */
+@media (max-width: 768px) {
+  
+  /* Ocultamos por completo el bloque de escritorio para que no estorbe */
+  .navbar-menu-desktop {
+    display: none;
+  }
+
+  .navbar-container {
+    padding: 10px 20px;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .navbar-toggle-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .navbar-toggle-btn .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  /* 📱 CONFIGURACIÓN DEL MENU: Despliegue desde la Derecha */
+  .navbar-menu-mobile-drawer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 80vw;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #30343F; /* Tu color Jet Black */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.4);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2500; /* 🔥 Capa superior absoluta: asegura que los botones reciban el touch */
+  }
+
+  /* Al hacer click en el botón, el cajón entra hacia la izquierda */
+  .navbar-menu-mobile-drawer.active {
+    right: 0;
+  }
+
+  /* Encabezado del Cajón móvil */
+  .drawer-mobile-header {
+    display: flex;
+    width: 100%;
+    background-color: #1B2021; /* Carbon Black */
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(137, 2, 62, 0.3);
+    box-sizing: border-box;
+  }
+
+  .drawer-login-btn {
+    background-color: #89023E;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+  }
+
+  .drawer-user-greet {
+    color: #FFD9DA;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+
+  .drawer-close-x {
+    background: none;
+    border: none;
+    color: #EA638C;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .drawer-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  /* Filas de opciones del menú móvil */
+  .drawer-nav-item {
+    width: 100%;
+    padding: 16px 25px;
+    border-bottom: 1px solid rgba(255, 217, 218, 0.05);
+    background: transparent;
+    color: #FFD9DA;
+    text-decoration: none;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 1rem;
+  }
+
+  .cart-badge {
+    background-color: #89023E;
+    color: white !important;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+  }
+
+  .logout-mobile-btn {
+    border: none;
+    color: #ff4d4d !important;
+    cursor: pointer;
+  }
+
+ /* 🌓 CAPA OSCURA DETRÁS DEL MENÚ */
+  .navbar-drawer-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Negro elegante al 50% de opacidad (nada opaco) */
+    z-index: 1500; /* 🔥 Capa intermedia: queda por detrás del menú (2500) pero sobre la página */
+  }
+}
